@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django clave valor</title>
+</head>
+<body>
+    {# hola comentario de una linea #}
+    
+    <h1> Hola {{name}} </h1>
+    <h3> Categorias</h3>
+    <p> {{categories}} </p>
+    {%comment%}
+    recorro categgorias y las pintamos
+    si una se llama code en negrita
+    las otras no
+     {% endcomment %}
+    <ul>
+        <li> 1 </li>
+        <li> 2 </li>
+        <li> 3 </li>
+    </ul>
+ {%comment%}
+    recorro categgorias y las pintamos
+    si una se llama code en negrita
+    las otras no
+     {% endcomment %}
+    <ul>
+        {% for category in categories %}
+            {% if category == 'code' %}
+            <li> <b>{{category|upper}}</b></li>
+            {% else %}
+            <li> {{ category }} </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h5> total de categorias: {{categories|length}} </h5>
+
+</body>
+</html>
+
